@@ -1,0 +1,18 @@
+/* .user-table {
+   
+    
+}
+
+.user-table-div{
+ 
+}
+ */
+
+.Header-Style{
+
+    /* position: fixed; */
+    /* z-index: 3; */
+    padding-left: 1rem;
+    display: flex;
+    width: 100%;
+}

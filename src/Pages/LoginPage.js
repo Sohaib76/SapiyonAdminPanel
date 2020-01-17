@@ -3,6 +3,8 @@ import '../App.css';
 import slogo from '../assets/SapiyonLogo.png';
 import WrappedNormalLoginForm from '../Components/LoginForm.js';
 
+
+
 function LoginPage() {
   return (
     <div className="LoginPage">
