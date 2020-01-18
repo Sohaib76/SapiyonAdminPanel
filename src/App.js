@@ -6,29 +6,33 @@ import CustomerInfo from './Pages/CustomerInfo';
 import UsersPage from './Pages/UsersPage';
 // import AppContainer from './Pages/AppNavigator.js';
 import {
-  HashRouter,
-
+  BrowserRouter as Router,
+  Switch,
   Route,
   Link,
-  BrowserRouter
-} from 'react-router-dom';
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 import UsersPage2 from './Pages/UsersPage2';
 
 export default class App extends React.Component{
   render(){
     return (
      
-      <BrowserRouter>
+      <Router>
         <div>
-          <Route exact path="/" component={LoginPage} />
-          <Route path="/home" component={CustomerInfo} />
-          <Route path="/users2" component={UsersPage2}/>
+          <Switch>
+            <Route exact path="/" component={LoginPage}/>  
+            <Route path="/home" component={CustomerInfo}/>
+            <Route path="/users2" component={UsersPage2}/>
+          </Switch>
+          
         
         </div>
         
         
    
-    </BrowserRouter>
+    </Router>
     ) 
   }
 }

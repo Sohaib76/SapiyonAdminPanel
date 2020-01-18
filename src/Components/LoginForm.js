@@ -16,11 +16,16 @@ class NormalLoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-       
+        // alert(JSON.stringify(values.username))
+        // alert(JSON.stringify(values.password))
         // let path = '/Table.js'
         // let history = useHistory();
         // history.push(path);
-        this.setState({validate:true})
+        if (values.username == "arfanliaqat10@gmail.com" && values.password == "secret123"){
+            this.setState({validate:true})
+            alert("Approved, Now Press Again The Sign In Button To Continue")
+        }
+        
         // alert("Ok")
         // window.location.reload()
 
@@ -43,7 +48,7 @@ class NormalLoginForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Router>
+    
           <Form onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
           {getFieldDecorator('username', {
@@ -73,21 +78,26 @@ class NormalLoginForm extends React.Component {
           })(<Checkbox>Beni hatırla</Checkbox>)}
           
           {/* login-form-button  */}
-          {/* {
-            this.state.validate == true ? <Link to="/home" onClick={this.forceUpdate} className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block"> Giriş Yap</Link>
+          {
+            this.state.validate == true ? <Link to="/home"><Button type="primary" htmlType="submit" 
+            className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block">
+              Giriş Yap
+            </Button></Link> 
               : <Button type="primary" htmlType="submit" 
               className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block">
                 Giriş Yap
               </Button>
-          } */}
+          } 
 
-            <Link to="/home" className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block"> Giriş Yap</Link>
+            {/* <Link to="/home" className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block"> Giriş Yap</Link> */}
            {/* <Link to={{pathname:"/home"}} onClick={this.handleSubmit} className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block"> Giriş Yap</Link> */}
-
-          {/* <Button type="primary" htmlType="submit" 
-          className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block">
-            Giriş Yap
-          </Button> */}
+          {/* <Link to="/home"> 
+              <Button type="primary" htmlType="submit" 
+              className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block">
+                Giriş Yap
+              </Button> 
+           </Link>
+           */}
           <a className="login-form-forgot " href="">
             {/* Forgot your password? */}
                 Şifrenizi mı unuttunuz?
@@ -101,7 +111,7 @@ class NormalLoginForm extends React.Component {
                
         </Form.Item>
       </Form>
-      </Router>
+    
       
     );
   }
