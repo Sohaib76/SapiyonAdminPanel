@@ -4,16 +4,25 @@ import "antd/dist/antd.css";
 import '../App.css';
 import { Link,BrowserRouter as Router, Route, Redirect, useHistory, NavLink, HashRouter} from 'react-router-dom'
 import CustomerInfo from '../Pages/CustomerInfo';
+import {withRouter} from 'react-router'
 
 class NormalLoginForm extends React.Component {
+
+ state = {
+   validate : false
+ }
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+       
         // let path = '/Table.js'
         // let history = useHistory();
         // history.push(path);
-        alert("Ok")
+        this.setState({validate:true})
+        // alert("Ok")
+        // window.location.reload()
 
         console.log('Received values of form: ', values);
       }
@@ -64,8 +73,17 @@ class NormalLoginForm extends React.Component {
           })(<Checkbox>Beni hatırla</Checkbox>)}
           
           {/* login-form-button  */}
-         
-          <Link to="/home" className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block"> Giriş Yap</Link>
+          {/* {
+            this.state.validate == true ? <Link to="/home" onClick={this.forceUpdate} className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block"> Giriş Yap</Link>
+              : <Button type="primary" htmlType="submit" 
+              className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block">
+                Giriş Yap
+              </Button>
+          } */}
+
+            <Link to="/home" className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block"> Giriş Yap</Link>
+           {/* <Link to={{pathname:"/home"}} onClick={this.handleSubmit} className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block"> Giriş Yap</Link> */}
+
           {/* <Button type="primary" htmlType="submit" 
           className="ant-btn font-medium s-h-32 Style-margin-bottom30 ant-btn-primary ant-btn-block">
             Giriş Yap
@@ -90,6 +108,7 @@ class NormalLoginForm extends React.Component {
 }
 
 const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
+ 
 
 
 export default WrappedNormalLoginForm;

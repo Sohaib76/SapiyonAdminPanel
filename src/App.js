@@ -12,6 +12,7 @@ import {
   Link,
   BrowserRouter
 } from 'react-router-dom';
+import UsersPage2 from './Pages/UsersPage2';
 
 export default class App extends React.Component{
   render(){
@@ -21,6 +22,7 @@ export default class App extends React.Component{
         <div>
           <Route exact path="/" component={LoginPage} />
           <Route path="/home" component={CustomerInfo} />
+          <Route path="/users2" component={UsersPage2}/>
         
         </div>
         
