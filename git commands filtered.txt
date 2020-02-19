@@ -1,0 +1,43 @@
+To Change Branch
+git checkout branch-name
+
+
+
+To Check In Which Branch You Are
+git branch
+
+
+
+To Push Changes Of One Branch To Other Branch
+git push origin from-b:to-b
+
+
+
+To Pull Changes From Remote Branch To Local Brach
+git pull
+
+
+
+Make New Under A Branch
+git checkout branch1 
+git checkout -b subbranch_of_b1 branch1
+
+
+Pull And Merge Branch
+git fetch origin other-branch && git merge other-branch
+
+
+
+Create New Branch
+git checkout -b [name_of_your_new_branch]
+
+
+
+Default
+git add .
+git commit -m ""
+git push origin branch-name
+
+
+
+https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
